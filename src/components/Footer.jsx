@@ -1,3 +1,4 @@
+//displays footer
 function Footer(){
     let year = new Date().getFullYear()
       return (
@@ -5,4 +6,5 @@ function Footer(){
       );
 }
 
+//to be used by <App />
 export default Footer;
