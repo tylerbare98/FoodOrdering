@@ -13,6 +13,7 @@ function createNote(noteEntry)
 {
   return (
     <Note
+    //This key = is some stupid crap to make React happy LOL
       key={noteEntry.id}
       title={noteEntry.title}
       content={noteEntry.content}
