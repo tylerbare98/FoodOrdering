@@ -1,15 +1,13 @@
 import styles from "./NavBar.module.css"
-import mealPic from "../assets/meals.jpeg"
-import Card from "./Card"
+import mealPic from "../../assets/meals.jpeg"
+import CartButton from "./CartButton"
 
 function NavBar(){
       return (
         <>
           <header className={styles.header}>
             <h1>ReactMeals</h1>
-            <Card>
-              <button>Cart</button>
-            </Card>
+            <CartButton />
           </header>
           <div className={styles.mainImage}>
             <img src={mealPic} alt="Meal"></img>
