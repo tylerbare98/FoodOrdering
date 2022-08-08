@@ -1,13 +1,17 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+import {CartItemsContext} from "../../App";
 import styles from "./MealsItem.module.css"
+import Button from "../../assets/Button"
+
 
 const MealsItem = (props) => {
 
     const [amount, setAmount] = useState("1");
+    const [cartItems, setCartItems] = useContext(CartItemsContext);
 
     const submitHandler = (event) => {
         event.preventDefault();
-        console.log("form submitted with amount = " + amount)
+        setCartItems([...cartItems, {id:props.id, name:props.name, amount:amount, price:props.price * amount}])
       }
 
     const amountChangedHandler = (event) => {
@@ -31,7 +35,7 @@ const MealsItem = (props) => {
                     className={styles.amountInput}
                     />
                 </label><br/>
-                <input type="submit" value="+ Add" className={styles.amountSubmit}/>
+                <Button>+ Add</Button>
             </form>
         </div>
     )

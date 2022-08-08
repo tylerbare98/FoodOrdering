@@ -1,0 +1,8 @@
+.modalSection{
+    display:flex;
+    justify-content: space-between;
+}
+
+.modalFooter{
+    text-align: right;
+}

@@ -2,7 +2,6 @@ import styles from "./Meals.module.css"
 import MealsItem from "./MealsItem"
 import Card from "../../assets/Card"
 
-
 const Meals = (props) => {
     return(
         <Card className={styles.container}>
@@ -14,7 +13,7 @@ const Meals = (props) => {
 const createMeal = (item, i, arr) => {
     return(
         <>
-            <MealsItem  price={item.price} name={item.name} description={item.description} />
+            <MealsItem  id={item.id} price={item.price} name={item.name} description={item.description} />
             {!(arr.length - 1 === i) && <hr />} {/*Add hr to every line except the last one*/}
         </>
     )

@@ -1,0 +1,31 @@
+.modal{
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.modalContent{
+    width:40%;
+    background-color: white;
+    position: fixed;
+    top:10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 15px;
+    padding: 0 10px;
+}
+
+.invertButton{
+    background-color: white;
+    color: #8a2b06;
+}
+
+.invertButton:hover,
+.invertButton:active {
+   background-color: #d4bfb8;
+   border-color: #641e03;
+}
