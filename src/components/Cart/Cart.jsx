@@ -1,7 +1,7 @@
 import Button from "../../assets/Button";
 import styles from "./Cart.module.css"
 import {useContext} from 'react';
-import {CartItemsContext} from "../../App";
+import {CartItemsContext} from "../../store/CartContext";
 
 const Cart = (props) => {
 

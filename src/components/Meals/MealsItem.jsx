@@ -1,5 +1,5 @@
 import {useState, useContext} from 'react';
-import {CartItemsContext} from "../../App";
+import {CartItemsContext} from "../../store/CartContext";
 import styles from "./MealsItem.module.css"
 import Button from "../../assets/Button"
 

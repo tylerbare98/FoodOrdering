@@ -2,12 +2,13 @@ import NavBar from "./components/Header/NavBar.jsx";
 import MealsWelcome from "./components/Meals/MealsWelcome"
 import Meals from "./components/Meals/Meals.jsx";
 import Modal from "./assets/Modal.jsx";
-import {useState, createContext} from 'react';
+import {useState} from 'react'
+import CartProvider from "./store/CartContext"
 
-export const CartItemsContext = createContext();
 
 function App(){
 
+  //isOpen and open/close functions are for the cart modal to be displayed
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -24,16 +25,14 @@ function App(){
   
   const modal = isOpen && <Modal closeModal={closeModal} order={order}/>;
 
-  const [cartItems, setCartItems] = useState([])
-
   return (
     <>
-      <CartItemsContext.Provider value={[cartItems, setCartItems]}>
+      <CartProvider>
         {modal}
         <NavBar openModal={openModal}/>
         <MealsWelcome />
         <Meals />
-      </CartItemsContext.Provider>
+      </CartProvider>
     </>
   );
 }
