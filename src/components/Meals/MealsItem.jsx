@@ -7,11 +7,11 @@ import Button from "../../assets/Button"
 const MealsItem = (props) => {
 
     const [amount, setAmount] = useState("1");
-    const [cartItems, setCartItems] = useContext(CartItemsContext);
+    const [cart, addItem, removeItem] = useContext(CartItemsContext);
 
     const submitHandler = (event) => {
         event.preventDefault();
-        setCartItems([...cartItems, {id:props.id, name:props.name, amount:amount, price:props.price * amount}])
+        addItem({name:props.name, amount:amount, price:props.price})
       }
 
     const amountChangedHandler = (event) => {

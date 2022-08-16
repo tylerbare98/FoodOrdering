@@ -5,28 +5,33 @@ import {CartItemsContext} from "../../store/CartContext";
 
 const Cart = (props) => {
 
-    let totalAmount = 0;
+    const submitHandler = (event) => {
+        event.preventDefault();
+        removeItem(event.target.id)
+      }
 
     const createItem = (item) => {
 
-        totalAmount += item.price
-
         return(
-            <h4>{`${item.name}(${item.amount}): ${item.price}`}</h4>
+        <section className={styles.sectionContainer}>
+            <h4>{`${item.name}(${item.amount}): ${item.price * item.amount}`}</h4>
+            <form id={item.name} onSubmit={submitHandler} className={styles.form}>
+                <Button>Remove</Button>
+            </form>
+        </section>
         )
     }
 
-    const [cartItems, setCartItems] = useContext(CartItemsContext);
-    console.log(cartItems)
+    const [cart, addItem, removeItem] = useContext(CartItemsContext);
 
     return(
         <>
             <header>
-                {cartItems.map(createItem)}
+                {cart.items.map(createItem)}
             </header>
             <section className={styles.modalSection}>
                 <h2>Total Amount</h2>
-                <h2>{totalAmount}</h2>
+                <h2>{cart.totalAmount}</h2>
             </section>
             <footer className={styles.modalFooter}>
                 <Button className={styles.invertButton} onClick={props.closeModal}>Close</Button>
